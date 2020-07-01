@@ -1,0 +1,98 @@
+{
+    "Player": [
+        {
+            "desc": "Commands relating to information about the player themselves."
+        },
+        {
+            "command": "?history {name/uuid}",
+            "description": "Shows the requested players name history."
+        },
+        {
+            "command": "?profile {name}",
+            "description": "Shows a summary of the requested user's Minecraft profile."
+        },
+        {
+            "command": "?skin {name}",
+            "description": "Shows a 3D render of the requested user's skin."
+        },
+        {
+            "command": "?skinfile {name}",
+            "description": "Shows the raw skin file of the requested user."
+        },
+        {
+            "command": "?face {name}",
+            "description": "Shows a 2D render of the requested user's Minecraft face."
+        },
+        {
+            "command": "?head {name}",
+            "description": "Shows a 3D render of the requested user's Minecraft head."
+        },
+        {
+            "command": "?uuid {name}",
+            "description": "Gives the requested user's shortened uuid."
+        },
+        {
+            "command": "?dashuuid {name}",
+            "description": "Gives the requested user's long uuid."
+        }
+    ],
+    "Cape": [
+        {
+            "desc": "Commands relating to all types of capes."
+        },
+        {
+            "command": "?cape {name}",
+            "description": "Checks for all capes that may apply to that user and outputs all that are found."
+        },
+        {
+            "command": "?mojcape {name}",
+            "description": "Checks if the user has a Mojang cape e.g. Minecon capes, custom official capes, employee capes, etc."
+        },
+        {
+            "command": "?opticape {name}",
+            "description": "Checks if the user has an OptiFine cape."
+        },
+        {
+            "command": "?zigcape {name}",
+            "description": "Checks if the user has a 5zig Reborn cape."
+        },
+        {
+            "command": "?labycape {name}",
+            "description": "Checks if the user has a LabyMod cape."
+        }
+    ],
+    "Server": [
+        {
+            "desc": "Minecraft server related commands."
+        },
+        {
+            "command": "?server {ip}",
+            "description": "Gives a summary of the requested server."
+        },
+        {
+            "command": "?hypixel {query}",
+            "description": "Commands related to the Hypixel Network see `?hypixel` for more information."
+        },
+        {
+            "command": "?skyblock {name}",
+            "description": "Commands related to Hypixel SkyBlock see `?skyblock` for more information."
+        }
+    ],
+    "Bot": [
+        {
+            "desc": "Bot related commands."
+        },
+        {
+            "command": "?leaderboard",
+            "description": "Shows the Top 10 most searched users on the bot."
+        },
+        {
+            "command": "?about",
+            "description": "Displays some information about the bot."
+        },
+        {
+            "command": "?help {query}",
+            "description": "Shows the help page."
+        }
+    ]
+}
