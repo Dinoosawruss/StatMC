@@ -64,48 +64,29 @@ class Hypixel(commands.Cog):
                 except:
                     await ctx.send(f"{ctx.author.mention} this user has never played Bedwars")
                     return
+                
+                defaultStats = [{'name': 'Winstreak','key': stats['streak']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]
 
                 if t is None:
-                    
-
-                    out = {'name':name,'tag':'Bedwars Stats (Overall)','checkName':'Iron Collected','stats':[{'name': 'Coins','key': stats['coins']},{'name': 'Winstreak','key': stats['streak']},{'name': 'Bedwars Level','key': stats['level']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]}
-                    
-                    await self.statEmbed(ctx, out)
-
+                    extras = [{'name': 'Coins','key': stats['coins']},{'name': 'Winstreak','key': stats['streak']},{'name': 'Bedwars Level','key': stats['level']}]
+                    out = {'name':name,'tag':'Bedwars Stats (Overall)','checkName':'Iron Collected','stats':defaultStats + extras}
+                
                 elif t[0].lower() == "s" or (t[0].lower() == "1" and len(t) == 1):
-                    
-
-                    out = {'name':name,'tag':'Bedwars Stats (Solo)','checkName':'Iron Collected','stats':[{'name': 'Winstreak','key': stats['streak']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]}         
-                    
-                    await self.statEmbed(ctx, out)
-
+                    out = {'name':name,'tag':'Bedwars Stats (Solo)','checkName':'Iron Collected','stats':defaultStats}         
             
                 elif t[0].lower() == "d" or (t[0].lower() == "2" and len(t) == 1):
-                    
-
-                    out = {'name':name,'tag':'Bedwars Stats (Doubles)','checkName':'Iron Collected','stats':[{'name': 'Winstreak','key': stats['streak']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]}
-                    
-                    await self.statEmbed (ctx, out)
+                    out = {'name':name,'tag':'Bedwars Stats (Doubles)','checkName':'Iron Collected','stats':defaultStats}
                 
                 elif t[0].lower() == "t" or (t[0].lower() == "3" and len(t) == 1):
-                    
-
-                    out = {'name':name,'tag':'Bedwars Stats (3v3v3v3)','checkName':'Iron Collected','stats':[{'name': 'Winstreak','key': stats['streak']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]
-                    }
-                    
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Bedwars Stats (3v3v3v3)','checkName':'Iron Collected','stats':defaultStats}
             
                 elif t[0].lower() == "f" or (t[0].lower() == "4" and len(t) == 1):
-                    
-
-                    out = {'name':name,'tag':'Bedwars Stats (4v4v4v4)','checkName':'Iron Collected','stats':[{'name': 'Winstreak','key': stats['streak']},{'name': 'Emeralds Collected','key': stats['emeraldsCollected']},{'name': 'Diamonds Collected','key': stats['diamondsCollected']},{'name': 'Gold Collected','key': stats['goldCollected']},{'name': 'Iron Collected','key': stats['ironCollected']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': round(stats['wl'],2)},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': round(stats['kd'],2)},{'name': 'Final Kills','key': stats['fkills']},{'name': 'Final Deaths','key': stats['fdeaths']},{'name': 'Final K/D Ratio','key': round(stats['fkd'],2)},{'name': 'Beds Broken','key': stats['bedsBroke']}]}
-
-                    await self.statEmbed(ctx,out)
-                
+                    out = {'name':name,'tag':'Bedwars Stats (4v4v4v4)','checkName':'Iron Collected','stats':defaultStats}
+               
                 else:
                     await ctx.send(f"{ctx.author.mention} the sub-mode provided was not recognised...")
 
-
+                await self.statEmbed(ctx, out)
 
             elif mode.lower() == "buildbattle":
                 stats = hypFunc.buildbattle(name)
@@ -113,10 +94,9 @@ class Hypixel(commands.Cog):
                     await ctx.send(f"{ctx.author.mention} this user has never played Build Battle")
                     return
                 
-                out = {'name':name,'tag':'Build Battle Stats','checkName':'Correct Guesses (GTB)','stats':[{'name': 'Score','key': stats['score']},{'name': 'Games Played','key': stats['gamesPlayed']},{'name': 'Total Votes','key': stats['totalVotes']},{'name': 'Correct Guesses (GTB)','key': stats['correctGuesses']},{'name': 'Solo Wins','key': stats['soloWins']},{'name': 'Teams Wins','key': stats['teamsWins']},{'name': 'Guess The Build Wins','key': stats['guessTheBuildWins']},{'name': 'Pro Wins','key': stats['proWins']}]
-                }
+                out = {'name':name,'tag':'Build Battle Stats','checkName':'Correct Guesses (GTB)','stats':[{'name': 'Score','key': stats['score']},{'name': 'Games Played','key': stats['gamesPlayed']},{'name': 'Total Votes','key': stats['totalVotes']},{'name': 'Correct Guesses (GTB)','key': stats['correctGuesses']},{'name': 'Solo Wins','key': stats['soloWins']},{'name': 'Teams Wins','key': stats['teamsWins']},{'name': 'Guess The Build Wins','key': stats['guessTheBuildWins']},{'name': 'Pro Wins','key': stats['proWins']}]}
 
-                await self.statEmbed(ctx,out)
+                
 
             elif mode.lower() == "duels":
                 
@@ -125,102 +105,68 @@ class Hypixel(commands.Cog):
                 #     await ctx.send(f"{ctx.author.mention} this user has never played Duels")
                 #     return
 
-                if t is None:
-                    out = {'name':name,'tag':'Duels Stats (Overall)','checkName':'Coins','stats':[{'name': 'Coins','key': stats['coins']},{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
+                defaultStats = [{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]
 
-                    await self.statEmbed(ctx,out)
+                if t is None:
+                    extras = [{'name': 'Coins','key': stats['coins']}]
+                    out = {'name':name,'tag':'Duels Stats (Overall)','checkName':'Coins','stats':extras + defaultStats}
 
                 elif "tourn" in t.lower():
-                    out = {'name':name,'tag':'Duels Stats (SW Tournament)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Duels Stats (SW Tournament)','checkName':'','stats':defaultStats}
 
                 elif "uhc" in t.lower():
                     if "1" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (UHC 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (UHC 1v1)','checkName':'','stats':defaultStats}
 
                     elif "2" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (UHC 2v2)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
+                        out = {'name':name,'tag':'Duels Stats (UHC 2v2)','checkName':'','stats':defaultStats}
 
-                        await self.statEmbed(ctx,out)
-
-                    
                     elif "4" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (UHC 4v4)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (UHC 4v4)','checkName':'','stats':defaultStats}                        
 
                     elif "m" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (UHC Meetup)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (UHC Meetup)','checkName':'','stats':defaultStats}    
                 
                 elif "op" in t.lower():
                     if "1" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (OP 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
+                        out = {'name':name,'tag':'Duels Stats (OP 1v1)','checkName':'','stats':defaultStats}
 
-                        await self.statEmbed(ctx,out)
-                    
                     if "2" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (OP 2v2)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (OP 2v2)','checkName':'','stats':defaultStats}                       
 
                 elif "skywar" in t.lower():
                     if "1" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (SkyWars 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (SkyWars 1v1)','checkName':'','stats':defaultStats} 
                     
                     if "2" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (SkyWars 2v2)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (SkyWars 2v2)','checkName':'','stats':defaultStats}
 
                 elif "blitz" in t.lower():
-                    out = {'name':name,'tag':'Duels Stats (Blitz 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Duels Stats (Blitz 1v1)','checkName':'','stats':defaultStats}
 
                 elif "sumo" in t.lower():
-                    out = {'name':name,'tag':'Duels Stats (Sumo 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Duels Stats (Sumo 1v1)','checkName':'','stats':defaultStats}                    
 
                 elif "classic" in t.lower():
-                    out = {'name':name,'tag':'Duels Stats (Classic 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Duels Stats (Classic 1v1)','checkName':'','stats':defaultStats}
 
                 elif "bridge" in t.lower():
                     if "1" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (Bridge 1v1)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (Bridge 1v1)','checkName':'','stats':defaultStats}
 
                     elif "2v2v2v2" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (Bridge 2v2v2v2)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (Bridge 2v2v2v2)','checkName':'','stats':defaultStats} 
 
                     elif "2" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (Bridge 2v2)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
-
-                        await self.statEmbed(ctx,out)
+                        out = {'name':name,'tag':'Duels Stats (Bridge 2v2)','checkName':'','stats':defaultStats}
 
                     elif "3" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (Bridge 3v3v3v3)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
+                        out = {'name':name,'tag':'Duels Stats (Bridge 3v3v3v3)','checkName':'','stats':defaultStats}
 
-                        await self.statEmbed(ctx,out)
-
-                    
                     elif "4" in t.lower():
-                        out = {'name':name,'tag':'Duels Stats (Bridge Teams)','checkName':'','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Arrows Shot','key': stats['arrowsShot']},{'name': 'Arrows Hit','key': stats['arrowsHit']},{'name': 'Arrow M/M Ratio','key': stats['HM']},{'name': 'Melee Swins','key': stats['meleeSwings']},{'name': 'Melee Hits','key': stats['meleeHits']},{'name': 'Melee H/M Ratio','key': stats['MHM']}]}
+                        out = {'name':name,'tag':'Duels Stats (Bridge Teams)','checkName':'','stats':defaultStats}             
 
-                        await self.statEmbed(ctx,out)
-
+                await self.statEmbed(ctx,out)
 
             elif mode.lower() == "skywars":
 
@@ -230,57 +176,34 @@ class Hypixel(commands.Cog):
                     await ctx.send(f"{ctx.author.mention} this user has never played SkyWars")
                     return
 
+                defaultStats = [{'name': 'Kills','key': stats['kills']},{'name': 'Assists','key': stats['assists']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]
+                defaultStats_ = [{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]
+
                 if t is None:
+                    out = {'name':name,'tag':'Skywars Stats (Overall)','checkName':'K/D Ratio','stats':[{'name': 'SkyWars Level','key': stats['level']},{'name': 'Prestige','key': stats['prestige']},{'name': 'Coins','key': stats['coins']},defaultStats,{'name': 'Soul Well Uses','key': stats['soul_well_uses']},{'name': 'Soul Well Legendaries','key': stats['soul_well_leg']},{'name': 'Purchased Souls','key': stats['purchased_souls']},{'name': 'Reaped Souls','key': stats['gathered_souls']},{'name': 'Blocks Broken','key': stats['blocks_broken']},{'name': 'Blocks Placed','key': stats['blocks_placed']},{'name': 'Arrows Shot','key': stats['arrows_shot']},{'name': 'Arrows Hit','key':stats['arrows_hit']},{'name':'Arrows Missed','key':stats['arrows_missed']},{'name':'Hit/Miss Ratio','key':stats['HM']}]}
                     
-
-                    out = {'name':name,'tag':'Skywars Stats (Overall)','checkName':'K/D Ratio','stats':[{'name': 'SkyWars Level','key': stats['level']},{'name': 'Prestige','key': stats['prestige']},{'name': 'Coins','key': stats['coins']},{'name': 'Kills','key': stats['kills']},{'name': 'Assists','key': stats['assists']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']},{'name': 'Soul Well Uses','key': stats['soul_well_uses']},{'name': 'Soul Well Legendaries','key': stats['soul_well_leg']},{'name': 'Purchased Souls','key': stats['purchased_souls']},{'name': 'Reaped Souls','key': stats['gathered_souls']},{'name': 'Blocks Broken','key': stats['blocks_broken']},{'name': 'Blocks Placed','key': stats['blocks_placed']},{'name': 'Arrows Shot','key': stats['arrows_shot']},{'name': 'Arrows Hit','key':stats['arrows_hit']},{'name':'Arrows Missed','key':stats['arrows_missed']},{'name':'Hit/Miss Ratio','key':stats['HM']}]}
-                    
-                    await self.statEmbed(ctx,out)
-
                 elif t.lower() == "solo":
+                    out = {'name':name,'tag':'Skywars Stats (Solo)','checkName':'K/D Ratio','stats':defaultStats}
                     
-
-                    out = {'name':name,'tag':'Skywars Stats (Solo)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Assists','key': stats['assists']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                    
-                    await self.statEmbed(ctx, out)
-
                 elif t.lower() == "team" or t.lower() == "teams":
-                    
-
-                    out = {'name':name,'tag':'Skywars Stats (Teams)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Assists','key': stats['assists']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                    
-                    await self.statEmbed(ctx,out)
-
+                    out = {'name':name,'tag':'Skywars Stats (Teams)','checkName':'K/D Ratio','stats':defaultStats}
+        
                 elif t.lower() == "solo normal" or t.lower() == "normal solo":
-                    
-
-                    out = {'name':name,'tag':'Skywars Stats (Solo - Normal)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                
-                    await self.statEmbed(ctx,out)
-                
+                    out = {'name':name,'tag':'Skywars Stats (Solo - Normal)','checkName':'K/D Ratio','stats':defaultStats_}
+        
                 elif t.lower() == "solo insane" or t.lower() == "normal insane":
-                    
-
-                    out = {'name':name,'tag':'Skywars Stats (Solo - Insane)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                
-                    await self.statEmbed(ctx,out)
-
+                    out = {'name':name,'tag':'Skywars Stats (Solo - Insane)','checkName':'K/D Ratio','stats':defaultStats_}
+            
                 elif t.lower() == "team normal" or t.lower() == "normal team" or t.lower() == "teams normal" or t.lower() == "normal teams":
-                    
-
-                    out = {'name':name,'tag':'Skywars Stats (Teams - Normal)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                    
-                    await self.statEmbed(ctx,out)
+                    out = {'name':name,'tag':'Skywars Stats (Teams - Normal)','checkName':'K/D Ratio','stats':defaultStats_}  
             
                 elif t.lower() == "teams insane" or t.lower() == "insane teams" or t.lower() == "team insane" or t.lower() == "insane teams":
-                    
-
-                    out = {'name':name,'tag':'Skywars Stats (Teams - Insane)','checkName':'K/D Ratio','stats':[{'name': 'Kills','key': stats['kills']},{'name': 'Deaths','key': stats['deaths']},{'name': 'K/D Ratio','key': stats['KD']},{'name': 'Wins','key': stats['wins']},{'name': 'Losses','key': stats['losses']},{'name': 'W/L Ratio','key': stats['WL']}]}
-                    
-                    await self.statEmbed(ctx, out)
-
+                    out = {'name':name,'tag':'Skywars Stats (Teams - Insane)','checkName':'K/D Ratio','stats':defaultStats_}
+            
                 else:
                     await ctx.send(f"{ctx.author.mention} the sub-mode provided was not recognised...")
+
+                await self.statEmbed(out,ctx)
 
             elif mode.lower() == "skyblock":
                 await ctx.send(f"{ctx.author.mention} for hypixel skyblock please use `?skyblock`")
