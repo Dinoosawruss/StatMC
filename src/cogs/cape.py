@@ -35,7 +35,7 @@ class Cape(commands.Cog):
             if not skipMojang:
                 for cape in mojang.capes:
                     if capeLink['url'] == f"http://textures.minecraft.net/texture/{cape['url']}":
-                        embed=discord.Embed(title="Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+                        embed=discord.Embed(title="Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
                         embed.set_thumbnail(url=options.mojangLogo)
                         embed.add_field(name="Current Username", value=f"{name}", inline=False)
                         embed.add_field(name="UUID", value=f"{uuid}", inline=False)
@@ -73,7 +73,7 @@ class Cape(commands.Cog):
             im1 = im1.resize((40, 64))
             im1.save(f"{name}.png")
 
-            embed=discord.Embed(title="OptiFine Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+            embed=discord.Embed(title="OptiFine Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
             embed.set_thumbnail(url=options.mojangLogo)
             embed.add_field(name="Current Username", value=f"{name}", inline=False)
             embed.add_field(name="UUID", value=f"{uuid}", inline=False)

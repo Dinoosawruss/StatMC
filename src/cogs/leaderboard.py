@@ -11,7 +11,7 @@ class Leaderboard(commands.Cog):
     async def leaderboard(self, ctx):
         lb = lbFunc.getTop()
         embed = discord.Embed()
-        embed=discord.Embed(title="Leaderboard", description=f"Top searched players", color=options.embedColour)
+        embed=discord.Embed(title="Leaderboard", description=f"Top searched players", color=options.getEmbedColour(ctx.guild.id))
 
         x = 0
         for player in lb:

@@ -11,7 +11,7 @@ class Help(commands.Cog):
 
     @commands.command()
     async def help(self, ctx, *, query=None):
-        embed=discord.Embed(title="Command List", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+        embed=discord.Embed(title="Command List", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
         embed.set_thumbnail(url=options.dinoLogo)
         
         with open("./data/commands.json", "r") as json_file:
