@@ -69,7 +69,7 @@ class Bot(commands.Bot):
         conn = sqlite3.connect("./data/guildSettings.db")
 
         sql = f"""INSERT INTO Guild(ID,Patreon,EmbedColour,Prefix) 
-                VALUES(?,"False","0xff0000","?")"""
+                VALUES(?,"False","16711680","?")"""
             
         cur = conn.cursor()
         args = (guild.id,)
