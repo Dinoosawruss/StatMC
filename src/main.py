@@ -2,6 +2,7 @@ import asyncio
 import datetime
 import json
 import logging
+import sqlite3
 from pathlib import Path
 
 import discord
@@ -63,6 +64,18 @@ class Bot(commands.Bot):
               f'Using discord.py version: {discord.__version__}\n'
               f'Owner: {self.app_info.owner}')
         print('-' * 10)
+    
+    async def on_guild_join(self, guild):
+        conn = sqlite3.connect("./data/guildSettings.db")
+
+        sql = f"""INSERT INTO Guild(ID,Patreon,EmbedColour,Prefix) 
+                VALUES(?,"False","16711680","?")"""
+            
+        cur = conn.cursor()
+        args = (guild.id,)
+        cur.execute(sql, args)
+
+        conn.commit()
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)

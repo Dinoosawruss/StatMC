@@ -43,7 +43,7 @@ class LabyModCape(commands.Cog):
             im1 = im1.resize((40, 64), resample=Image.NEAREST)
             im1.save(filename)
 
-            embed=discord.Embed(title="LabyMod Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+            embed=discord.Embed(title="LabyMod Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
             embed.set_thumbnail(url=options.labyLogo)
             embed.add_field(name="Current Username", value=f"{name}", inline=False)
             embed.add_field(name="UUID", value=f"{uuid}", inline=False)

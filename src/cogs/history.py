@@ -22,7 +22,7 @@ class History(commands.Cog):
                 for uname in nameHistory:
                     previous += f"`{uname}`\n"
 
-                embed=discord.Embed(title="Name History Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+                embed=discord.Embed(title="Name History Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
                 embed.set_thumbnail(url=options.mojangLogo)
                 embed.add_field(name="Current Username", value=f"{name}", inline=False)
                 embed.add_field(name="UUID", value=f"{uuid}", inline=False)
@@ -41,7 +41,7 @@ class History(commands.Cog):
                 for uname in nameHistory:
                     previous += f"\n{uname}"
 
-                embed=discord.Embed(title="Name History Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+                embed=discord.Embed(title="Name History Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
                 embed.set_thumbnail(url=options.mojangLogo)
                 embed.add_field(name="Current Username", value=f"{name}", inline=False)
                 embed.add_field(name="UUID", value=f"{uuid}", inline=False)

@@ -29,7 +29,7 @@ class Profile(commands.Cog):
                 previous += f"`{uname}`\n"
 
             embed = discord.Embed()
-            embed=discord.Embed(title=f"{name}'s Profile'", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+            embed=discord.Embed(title=f"{name}'s Profile'", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
             embed.set_thumbnail(url=options.mojangLogo)
             embed.add_field(name="Current Username", value=name, inline=False)
             embed.add_field(name="UUID", value=uuid, inline=False)

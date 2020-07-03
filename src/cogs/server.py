@@ -11,7 +11,7 @@ class Server(commands.Cog):
     async def server(self, ctx, ip):
         server = serverFunc.getServerStatus(ip)
 
-        embed=discord.Embed(title="Server Info Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+        embed=discord.Embed(title="Server Info Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
         embed.set_thumbnail(url=server['favicon'])
         embed.add_field(name="IP", value=server['ip'], inline=False)
         embed.add_field(name="MOTD", value=f"`{server['desc']}`", inline=False)

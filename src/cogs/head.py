@@ -18,7 +18,7 @@ class Head(commands.Cog):
                 return
             
             embed = discord.Embed()
-            embed=discord.Embed(title="Skin Lookup", description=f"The results {ctx.author}'s lookup", color=options.embedColour)
+            embed=discord.Embed(title="Skin Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
             embed.set_thumbnail(url=options.mojangLogo)
             embed.add_field(name="Current Username", value=f"{name}", inline=False)
             embed.add_field(name="UUID", value=f"{uuid}", inline=False)
