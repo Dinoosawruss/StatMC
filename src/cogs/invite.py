@@ -11,7 +11,7 @@ class Invite(commands.Cog):
         """
         A test command, Mainly used to show how commands and cogs should be laid out.
         """
-        await ctx.send(f'{ctx.author.mention} you can invite the bot with the following link:\n')
+        await ctx.send(f'{ctx.author.mention} you can invite the bot with the following link:\nhttps://bit.ly/smc-invite')
 
 
 def setup(bot):

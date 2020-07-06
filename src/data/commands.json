@@ -36,6 +36,15 @@
             "description": "Gives the requested user's long uuid."
         }
     ],
+    "Minecraft": [
+        {
+            "desc": "Commands relating to game mechanics."
+        },
+        {
+            "command": "?recipe {item}",
+            "description": "Shows the recipe for that item."
+        }
+    ],
     "Cape": [
         {
             "desc": "Commands relating to all types of capes."
@@ -93,6 +102,22 @@
         {
             "command": "?help {query}",
             "description": "Shows the help page."
+        },
+        {
+            "command": "?guilds",
+            "description": "Returns how many guilds the bot is in."
+        },
+        {
+            "command": "?embedcolour",
+            "description": "Allows you to change the colour of the embed *Patreon Exclusive*"
+        },
+        {
+            "command": "?discord",
+            "description": "Gives an invite link to the support discord."
+        },
+        {
+            "command": "?patreon",
+            "description": "Gives a link to our patreon."
         }
     ]
 }

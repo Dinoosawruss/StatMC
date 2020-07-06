@@ -8,6 +8,8 @@ from pathlib import Path
 import discord
 from discord.ext import commands
 
+from func import options
+
 def config_load():
     with open('data/config.json', 'r', encoding='utf-8-sig') as doc:
         return json.load(doc)
@@ -76,6 +78,26 @@ class Bot(commands.Bot):
         cur.execute(sql, args)
 
         conn.commit()
+
+        embed = discord.Embed(title="StatMC", description="Thank you for inviting StatMC!\n\nPlease use `?help` for a list of commands", color=16711680)
+        embed.set_thumbnail(url=options.dinoLogo)
+
+        await guild.text_channels[0].send(embed=embed)
+
+        print(f'Added to new guild: {guild.name}')
+        print('-'*10)
+
+    async def on_command(self, ctx):
+        print(f'Command run by: {ctx.author}\n'
+              f'Run in server: {ctx.guild.name}\n'
+              f'Command: {ctx.command}')
+        print('-'*10)
+    
+    async def on_command_error(self, ctx, error):
+        await ctx.send(f'Sorry {ctx.author.mention} something appears to have gone wrong with this command...')
+
+        print(error)
+        print('-'*10)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
