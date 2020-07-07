@@ -9,7 +9,7 @@ class Prefixes(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_permission(administrator=True)
+    @commands.has_permissions(administrator=True)
     async def prefix(self, ctx, prefix):
         """
         Changes the server prefix for the bot!
