@@ -10,7 +10,8 @@ A powerful minecraft statistics bot
 Any contributors to this project are not responsible for the way in which it is used on your server. If users spam the commands and cause issues with the number of API lookups the bot is performing your server will be blacklisted. 
 
 ## Contributors 
-* Michael Dormand (Dinoosawruss)
+* [Michael Dormand (Dinoosawruss)](https://github.com/Dinoosawruss)
+* [Harry - (hwalker928)](https://github.com/hwalker928)
 
 ## Further Info
 [Trello Board](https://trello.com/b/0qogQ7Bd)
