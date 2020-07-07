@@ -96,6 +96,10 @@
             "description": "Shows the Top 10 most searched users on the bot."
         },
         {
+            "command": "?prefix",
+            "description": "Lets you change the server prefix for the bot."
+        },
+        {
             "command": "?about",
             "description": "Displays some information about the bot."
         },
