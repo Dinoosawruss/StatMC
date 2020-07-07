@@ -4,11 +4,12 @@ import os
 import json
 
 
-class prefixes(commands.Cog):
+class Prefixes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
+    @commands.has_permission(administrator=True)
     async def prefix(self, ctx, prefix):
         """
         Changes the server prefix for the bot!
@@ -20,9 +21,9 @@ class prefixes(commands.Cog):
 
         with open('data/prefixes.json', 'w') as f:
             json.dump(prefixes, f, indent=4)
-        await ctx.send("The prefix for this guild is now {prefix}.")
+        await ctx.send(f"The prefix for this guild is now {prefix}.")
         
 
 
 def setup(bot):
-    bot.add_cog(prefixes(bot))
+    bot.add_cog(Prefixes(bot))
