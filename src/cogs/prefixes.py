@@ -20,6 +20,7 @@ class prefixes(commands.Cog):
 
         with open('data/prefixes.json', 'w') as f:
             json.dump(prefixes, f, indent=4)
+        await ctx.send("The prefix for this guild is now {prefix}.")
         
 
 
