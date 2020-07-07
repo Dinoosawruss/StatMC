@@ -10,6 +10,15 @@ from discord.ext import commands
 
 from func import options
 
+def get_prefix(client, message):
+    try:
+        with open('data/prefixes.json', 'r') as f:
+            prefixes = json.load(f)
+
+        return prefixes[str(message.guild.id)]
+    except:
+        return '?'
+
 def config_load():
     with open('data/config.json', 'r', encoding='utf-8-sig') as doc:
         return json.load(doc)
@@ -29,7 +38,7 @@ async def run():
 class Bot(commands.Bot):
     def __init__(self, **kwargs):
         super().__init__(
-            command_prefix=self.get_prefix_,
+            command_prefix=get_prefix,
             description=kwargs.pop('description')
         )
         self.start_time = None
@@ -87,6 +96,14 @@ class Bot(commands.Bot):
         print(f'Added to new guild: {guild.name}')
         print('-'*10)
 
+        with open('data/prefixes.json', 'r') as f:
+            prefixes = json.load(f)
+
+        prefixes[str(guild.id)] = '?'
+
+        with open('data/prefixes.json', 'w') as f:
+            json.dump(prefixes, f, indent=4)
+
     async def on_command(self, ctx):
         print(f'Command run by: {ctx.author}\n'
               f'Run in server: {ctx.guild.name}\n'
@@ -98,6 +115,8 @@ class Bot(commands.Bot):
 
         print(error)
         print('-'*10)
+
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
