@@ -45,6 +45,35 @@
             "description": "Shows the recipe for that item."
         }
     ],
+    "Player Analytics": [
+        {
+            "desc": "Commands relating to player analytics. (Requires setup)"
+        },
+        {
+            "command": "?lastseen {name}",
+            "description": "Outputs when the user was last online."
+        },
+        {
+            "command": "?banned {name}",
+            "description": "Outputs whether the user is banned from the server or not."
+        },
+        {
+            "command": "?playtime {name}",
+            "description": "Outputs the users server playtime."
+        },
+        {
+            "command": "?activity {name}",
+            "description": "Outputs the users Player Analytics Activity Index Score."
+        },
+        {
+            "command": "?ping {name}",
+            "description": "Outputs the users average, best, and worst ping"
+        },
+        {
+            "command": "?firstjoin {name}",
+            "description": "Outputs the date and time the user first joined the server"
+        }
+    ],
     "Cape": [
         {
             "desc": "Commands relating to all types of capes."
