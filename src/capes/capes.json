@@ -1,0 +1,84 @@
+{
+    "capes": [
+        {
+            "name": "Mojang",
+            "img": "new_mojang.png"
+        },
+        {
+            "name": "Mojang (Classic)",
+            "img": "old_mojang.png"
+        },
+        {
+            "name": "Scrolls",
+            "img": "scrolls.png"
+        },
+        {
+            "name": "Realms Mapmaker",
+            "img": "realms.png"
+        },
+        {
+            "name": "Cobalt",
+            "img": "cobalt.png"
+        },
+        {
+            "name": "MineCon 2011",
+            "img": "2011_minecon.png"
+        },
+        {
+            "name": "MineCon 2012",
+            "img": "2012_minecon.png"
+        },
+        {
+            "name": "MineCon 2013",
+            "img": "2013_minecon.png"
+        },
+        {
+            "name": "MineCon 2015",
+            "img": "2015_minecon.png"
+        },
+        {
+            "name": "MineCon 2016",
+            "img": "2016_minecon.png"
+        },
+        {
+            "name": "Translator",
+            "img": "translator.png"
+        },
+        {
+            "name": "Mojira Moderator",
+            "img": "mojira.png"
+        },
+        {
+            "name": "Translator (Chinese)",
+            "img": "translator.png"
+        },
+        {
+            "name": "cheapsh0t",
+            "img": "translator.png"
+        },
+        {
+            "name": "dannyBstyle",
+            "img": "db.png"
+        },
+        {
+            "name": "JulianClark",
+            "img": "julian.png"
+        },
+        {
+            "name": "Millionth Customer",
+            "img": "1mil.png"
+        },
+        {
+            "name": "MrMessiah",
+            "img": "mrm.png"
+        },
+        {
+            "name": "Prismarine",
+            "img": "prismarine.png"
+        },
+        {
+            "name": "Turtle",
+            "img": "turtle.png"
+        }
+    ]
+}

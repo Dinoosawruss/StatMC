@@ -3,6 +3,10 @@ from discord.ext import commands
 
 from func import mojang, options, lbFunc
 
+from PIL import Image
+import sys
+import os
+
 class MojangCape(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -19,26 +23,44 @@ class MojangCape(commands.Cog):
                 return
 
             
-            capeLink = mojang.getMojangCape(uuid)
+            capes = mojang.getMojangCape(name)
+            
+            images = []
+            
+            for x in capes:
+                images.append(Image.open(f"./capes/{x[1]}"))
 
-            if capeLink is None:
-                await ctx.send(f"{ctx.author.mention} this user does not have a mojang cape...")
-                skipMojang = True
-                
-            if not skipMojang:
-                for cape in mojang.capes:
-                    if capeLink['url'] == f"http://textures.minecraft.net/texture/{cape['url']}":
-                        embed=discord.Embed(title="Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
-                        embed.set_thumbnail(url=options.mojangLogo)
-                        embed.add_field(name="Current Username", value=f"{name}", inline=False)
-                        embed.add_field(name="UUID", value=f"{uuid}", inline=False)
-                        embed.add_field(name="Current Cape", value=f"{cape['name']}", inline=False)
-                        await ctx.send(embed=embed)
+            print(images)
+            widths, heights = zip(*(i.size for i in images))
 
-                        await ctx.send(file=discord.File(f"./capes/{cape['image']}"))
+            total_width = sum(widths)
+            max_height = max(heights)
 
-                lbFunc.add(name)
+            new_im = Image.new('RGB', (total_width, max_height))
 
+            x_offset = 0
+            for im in images:
+                new_im.paste(im, (x_offset,0))
+                x_offset += im.size[0]
+
+                new_im.save(f'{name}.png')
+            
+            
+
+            capeText = ""
+            
+            for i in capes:
+                capeText += f"{i[0]}\n"
+
+            embed=discord.Embed(title="Cape Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
+            embed.set_thumbnail(url=options.mojangLogo)
+            embed.add_field(name="Current Username", value=f"{name}", inline=False)
+            embed.add_field(name="UUID", value=f"{uuid}", inline=False)
+            embed.add_field(name="Current Capes", value=capeText, inline=False)
+            await ctx.send(embed=embed)
+            await ctx.send(file=discord.File(f"{name}.png"))
+
+            os.remove(f"{name}.png")
 
 def setup(bot):
     bot.add_cog(MojangCape(bot))
