@@ -12,10 +12,12 @@ class Hypixel(commands.Cog):
         embed=discord.Embed(title="Hypixel Stats Lookup", description=f"The results {ctx.author}'s lookup", color=options.getEmbedColour(ctx.guild.id))
         embed.set_thumbnail(url=options.hypixelLogo)
         embed.add_field(name="Current Username", value=f"{out['name']}", inline=False)
+
         embed.add_field(name=out['tag'], value="...", inline=False)
 
         for stat in out['stats']:
             embed.add_field(name=stat['name'], value=stat['key'], inline=stat['name'] != out['checkName'])
+            
 
         await ctx.send(embed=embed)
 
@@ -94,9 +96,9 @@ class Hypixel(commands.Cog):
                 ]
 
                 for mode in submodes:
-                    if t == mode.get("identifierStr", None) or t == mode.get("identifierInt", None):
+                    if t[0] == mode.get("identifierStr", None) or t == mode.get("identifierInt", None):
                         stats = {'name':name,'tag':f'Bedwars Stats ({mode.get("customTag", "Overall")})','checkName':'Iron Collected','stats':mode.get("stats", defaultStats)}
-                        await self.statEmbed(ctx,mode.get("stats", stats))
+                        await self.statEmbed(ctx,stats)
                         return
 
                 
@@ -195,15 +197,17 @@ class Hypixel(commands.Cog):
                 
                 submodes = [
                     {
-                        "stats": {'name':name,'tag':'Skywars Stats (Overall)','checkName':'K/D Ratio','stats':[{'name': 'SkyWars Level','key': stats['level']},{'name': 'Prestige','key': stats['prestige']},{'name': 'Coins','key': stats['coins']},defaultStats,{'name': 'Soul Well Uses','key': stats['soul_well_uses']},{'name': 'Soul Well Legendaries','key': stats['soul_well_leg']},{'name': 'Purchased Souls','key': stats['purchased_souls']},{'name': 'Reaped Souls','key': stats['gathered_souls']},{'name': 'Blocks Broken','key': stats['blocks_broken']},{'name': 'Blocks Placed','key': stats['blocks_placed']},{'name': 'Arrows Shot','key': stats['arrows_shot']},{'name': 'Arrows Hit','key':stats['arrows_hit']},{'name':'Arrows Missed','key':stats['arrows_missed']},{'name':'Hit/Miss Ratio','key':stats['HM']}]}
+                        "stats": [{'name': 'SkyWars Level','key': stats.get('level')},{'name': 'Prestige','key': stats.get('prestige')},{'name': 'Coins','key': stats.get('coins')}] + defaultStats + [{'name': 'Soul Well Uses','key': stats.get('soul_well_uses')},{'name': 'Soul Well Legendaries','key': stats.get('soul_well_leg')},{'name': 'Purchased Souls','key': stats.get('purchased_souls')},{'name': 'Reaped Souls','key': stats.get('gathered_souls')},{'name': 'Blocks Broken','key': stats.get('blocks_broken')},{'name': 'Blocks Placed','key': stats.get('blocks_placed')},{'name': 'Arrows Shot','key': stats.get('arrows_shot')},{'name': 'Arrows Hit','key':stats.get('arrows_hit')},{'name':'Arrows Missed','key':stats.get('arrows_missed')},{'name':'Hit/Miss Ratio','key':stats.get('HM')}]
                     },
                     {
                         "identifierStr": "solo",
-                        "customTag": "Solo"
+                        "customTag": "Solo",
+                        "stats": defaultStats
                     },
                     {
                         "identifierStr": "Team",
-                        "customTag": "Teams"
+                        "customTag": "Teams",
+                        "stats": defaultStats
                     },
                     {
                         "identifierStr": "solo normal",
@@ -228,9 +232,12 @@ class Hypixel(commands.Cog):
                 ]
 
                 for mode in submodes:
-                    if t.lower() == mode.get("identifierStr", None):
+                    print(t)
+                    print(mode.get("identifierStr", None))
+                    if t == mode.get("identifierStr", None):
+                        print("a")
                         stats = {'name':name,'tag':f'Skywars Stats ({mode.get("customTag", "Overall")})','checkName':'','stats':mode.get("stats", defaultStats)}
-                        await self.statEmbed(ctx,mode.get("stats", stats))
+                        await self.statEmbed(ctx,stats)
                         return
 
                 
