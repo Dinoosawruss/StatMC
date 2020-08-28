@@ -1,3 +1,5 @@
+# Development currently discontinued due to a lack of free time
+
 ![img](https://i.imgur.com/t5j2hE1.png)
 A powerful minecraft statistics bot
 
